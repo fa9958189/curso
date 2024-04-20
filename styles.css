@@ -44,24 +44,16 @@ ul {
 .btn:hover {
   background-color: #555;
 }
-
 .video {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
+  text-align: center;
 }
 
 .video-wrapper {
-  position: relative;
-  width: 80%; /* Define a largura do vídeo */
-  padding-bottom: 56.25%; /* Proporção 16:9 */
+  max-width: 640px; /* Defina o tamanho máximo do vídeo */
+  margin: 0 auto; /* Centralize o vídeo horizontalmente */
 }
 
 .video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Garante que o vídeo preencha a largura da wrapper */
-  height: 100%; /* Garante que o vídeo preencha a altura da wrapper */
+  width: 100%; /* Para ocupar toda a largura do container */
+  height: 360px; /* Defina a altura desejada do vídeo */
 }
