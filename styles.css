@@ -69,3 +69,13 @@ ul {
   width: 100%; /* Para ocupar toda a largura do container */
   height: 360px; /* Defina a altura desejada do vídeo */
 }
+.video-2 {
+  text-align: center;
+  margin-top: 50px; /* Ajuste conforme necessário */
+}
+
+.video-2 video {
+  max-width: 100%; /* Ajuste conforme necessário */
+  height: auto; /* Para manter a proporção do vídeo */
+  max-height: 300px; /* Altura máxima do vídeo */
+}
