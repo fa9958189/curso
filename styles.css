@@ -79,3 +79,7 @@ ul {
   height: auto; /* Para manter a proporção do vídeo */
   max-height: 300px; /* Altura máxima do vídeo */
 }
+.rep video {
+  max-width: 100%;
+  height: auto; /* Isso garante que a altura da imagem seja ajustada proporcionalmente à largura */
+}
