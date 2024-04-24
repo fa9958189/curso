@@ -81,5 +81,76 @@ ul {
 }
 .rep video {
   max-width: 100%;
-  height: auto; /* Isso garante que a altura da imagem seja ajustada proporcionalmente à largura */
+  height: 260px; /* Isso garante que a altura da imagem seja ajustada proporcionalmente à largura */
 }
+
+
+.subscribe-btn {
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid #bada55; /* Cor da borda */
+  border-radius: 25px; /* Formato do botão */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #bada55; /* Cor do texto */
+  position: relative;
+  overflow: hidden;
+  margin: auto; /* Centraliza o botão */
+}
+/* Animação para o efeito de rotação */
+.subscribe-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(186, 218, 85, 0.3); /* Cor do efeito */
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Animação para o efeito de piscar */
+.subscribe-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: rgba(186, 218, 85, 0.3); /* Cor do efeito */
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Efeito de rotação */
+.subscribe-btn:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Efeito de piscar */
+.subscribe-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Estilo do link dentro do botão */
+.subscribe-btn a {
+  color: #bada55; /* Cor do texto */
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
