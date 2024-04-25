@@ -150,7 +150,10 @@ ul {
   border: 3px solid blue;
   padding: 40px; /* Adicione preenchimento para criar um espaço entre a borda e o conteúdo */
 }
-
+.Tokes img {
+  max-width: 100%;
+  height: 500px;
+}
 
 
 
