@@ -194,6 +194,22 @@ ul {
 .borda:hover .back {
   transform: rotateY(0deg); /* Mantém na posição inicial quando o mouse passa por cima */
 }
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pula {
+  font-size: 24px; /* Tamanho do texto */
+  animation: pulse 2s infinite; /* Animação de pulsação */
+}
 
 
 
