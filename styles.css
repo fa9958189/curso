@@ -9,7 +9,7 @@ body, html {
   padding: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #b78efa;
+  background-color: orange;
 }
 
 .video-bg {
@@ -45,6 +45,10 @@ h1 {
   margin-bottom: 10px;
   color: #fff !important;
 }
+h3{
+  color: #fff;
+  background-color: #fff;
+}
 
 ul {
   list-style-type: disc;
@@ -59,7 +63,7 @@ ul {
 .video-wrapper {
   max-width: 640px; /* Defina o tamanho máximo do vídeo */
   margin: 0 auto; /* Centralize o vídeo horizontalmente */
-  background-color: #635ab7;
+  background-color: orange;
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -88,13 +92,13 @@ ul {
 .subscribe-btn {
   display: inline-block;
   background-color: transparent;
-  border: 2px solid #bada55; /* Cor da borda */
+  border: 2px solid orange; /* Cor da borda */
   border-radius: 25px; /* Formato do botão */
   padding: 10px 20px; /* Espaçamento interno */
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  color: #bada55; /* Cor do texto */
+  color: orange; /* Cor do texto */
   position: relative;
   overflow: hidden;
   margin: auto; /* Centraliza o botão */
@@ -141,7 +145,7 @@ ul {
 
 /* Estilo do link dentro do botão */
 .subscribe-btn a {
-  color: #bada55; /* Cor do texto */
+  color: orange; /* Cor do texto */
   text-decoration: none;
   position: relative;
   z-index: 1;
