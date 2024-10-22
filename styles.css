@@ -1,0 +1,64 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('/fotos/WhatsApp\ Image\ 2024-10-22\ at\ 14.27.01\ \(1\).jpeg'); /* Altere o caminho da imagem */
+    background-size: cover; /* Garante que a imagem ocupe toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* A imagem fica fixa ao rolar a página */
+    height: 100vh; /* Define a altura da tela para que a imagem cubra toda a tela inicialmente */
+  }
+  
+  /* Fundo laranja após a imagem de fundo */
+  .container {
+    background-color: orange; /* Cor de fundo laranja */
+    padding-top: 30px; /* Espaçamento superior */
+    padding-bottom: 30px; /* Espaçamento inferior */
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Mantém a proporção 16:9 */
+    height: 0;
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  .video {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .video-wrapper {
+    max-width: 640px; /* Defina o tamanho máximo do vídeo */
+    margin: 0 auto; /* Centralize o vídeo horizontalmente */
+    background-color: orange;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .video-wrapper iframe {
+    width: 100%; /* Para ocupar toda a largura do container */
+    height: 360px; /* Defina a altura desejada do vídeo */
+  }
