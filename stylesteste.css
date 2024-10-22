@@ -1,0 +1,221 @@
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: orange;
+}
+
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  position: relative;
+  z-index: 1; /* Para garantir que o conteúdo fique sobre o vídeo */
+}
+
+header {
+  background-color: #2b2d61;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.course-info, .why-choose, .video, .cta {
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #fff !important;
+}
+h1 {
+  margin-bottom: 10px;
+  color: #fff !important;
+}
+h4{
+  color: #fff;
+  background-color: #fff;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.video {
+  text-align: center;
+  color: #fff;
+}
+
+.video-wrapper {
+  max-width: 640px; /* Defina o tamanho máximo do vídeo */
+  margin: 0 auto; /* Centralize o vídeo horizontalmente */
+  background-color: orange;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.video-wrapper iframe {
+  width: 100%; /* Para ocupar toda a largura do container */
+  height: 360px; /* Defina a altura desejada do vídeo */
+}
+.video-2 {
+  text-align: center;
+  margin-top: 50px; /* Ajuste conforme necessário */
+}
+
+.video-2 video {
+  max-width: 100%; /* Ajuste conforme necessário */
+  height: auto; /* Para manter a proporção do vídeo */
+  max-height: 300px; /* Altura máxima do vídeo */
+}
+.rep video {
+  max-width: 100%;
+  height: 260px; /* Isso garante que a altura da imagem seja ajustada proporcionalmente à largura */
+}
+
+
+.subscribe-btn {
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid orange; /* Cor da borda */
+  border-radius: 25px; /* Formato do botão */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: orange; /* Cor do texto */
+  position: relative;
+  overflow: hidden;
+  margin: auto; /* Centraliza o botão */
+}
+/* Animação para o efeito de rotação */
+.subscribe-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(186, 218, 85, 0.3); /* Cor do efeito */
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Animação para o efeito de piscar */
+.subscribe-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: rgba(186, 218, 85, 0.3); /* Cor do efeito */
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Efeito de rotação */
+.subscribe-btn:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Efeito de piscar */
+.subscribe-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Estilo do link dentro do botão */
+.subscribe-btn a {
+  color: orange; /* Cor do texto */
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+.Tokes img {
+  max-width: 100%;
+  height: 500px;
+}
+.borda {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  perspective: 1000px; /* Define a perspectiva para o efeito 3D */
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo transparente */
+  backface-visibility: hidden; /* Esconde o verso quando a carta não está virada */
+  transition: transform 0.5s ease; /* Adiciona uma transição suave */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em; /* Ajuste o tamanho da fonte para se adequar ao tamanho da div */
+}
+
+.front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d; /* Mantém a transformação em 3D */
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d; /* Mantém a transformação em 3D */
+  transform: rotateY(180deg); /* Inicia virado para trás */
+}
+
+.borda:hover .front {
+  transform: rotateY(-180deg); /* Gira para trás quando o mouse passa por cima */
+}
+
+.borda:hover .back {
+  transform: rotateY(0deg); /* Mantém na posição inicial quando o mouse passa por cima */
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pula {
+  font-size: 24px; /* Tamanho do texto */
+  animation: pulse 2s infinite; /* Animação de pulsação */
+}
+
+
+
+
+
