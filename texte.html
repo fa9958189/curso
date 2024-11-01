@@ -9,19 +9,32 @@
 </head>
 <body>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4B7765BQZB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-4B7765BQZB');
-  </script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4B7765BQZB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4B7765BQZB');
+</script>
+
+  <div class="container text-center my-5">
+    <div class="row">
+      <div class="col align-self-center">
+        <section class="video">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/jRtSxt9IdIw?si=GiIcZd06TY9QockE" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 
   <!-- Seção com fundo laranja -->
   <div class="bg-orange container text-center">
-    <form id="cart-form"><br>
+    <form id="cart-form"><br><br><br><br><br><br><br><br>
       <!-- Lotes -->
       <h4 class="my-4">Lotes de Ingressos</h4>
       <div class="row">
@@ -53,6 +66,7 @@
           </div>
         </div>
       </div>
+
       <!-- VIP -->
       <h4 class="my-4">Ingressos VIP</h4>
       <div class="row">
@@ -60,7 +74,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">VIP Individual</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
+              <p class="card-text">R$ 450,00</p>
               <input type="number" id="vip_individual" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -69,7 +83,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">VIP Casal</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
+              <p class="card-text">R$ 800,00</p>
               <input type="number" id="vip_casal" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -83,7 +97,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Curso Prático com Diogo</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
+              <p class="card-text">R$ 1.800,00</p>
               <input type="number" id="curso_pratico" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -92,7 +106,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Mentoria com Bruno - Individual</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
+              <p class="card-text">R$ 1.000,00</p>
               <input type="number" id="mentoria_individual" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -101,13 +115,13 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Mentoria com Bruno - Casal</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
+              <p class="card-text">R$ 1.500,00</p>
               <input type="number" id="mentoria_casal" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
       </div><br>
-
+      
       <button type="button" class="btn btn-primary btn-lg" 
         style="background-color: black; color: white;" 
         onclick="redirecionarParaTermos()">Finalizar Compra</button>
