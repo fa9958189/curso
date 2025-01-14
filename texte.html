@@ -9,32 +9,18 @@
 </head>
 <body>
 
-
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4B7765BQZB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4B7765BQZB');
-</script>
-
-  <div class="container text-center my-5">
-    <div class="row">
-      <div class="col align-self-center">
-        <section class="video">
-          <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/jRtSxt9IdIw?si=GiIcZd06TY9QockE" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4B7765BQZB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4B7765BQZB');
+  </script>
 
   <!-- Seção com fundo laranja -->
   <div class="bg-orange container text-center">
-    <form id="cart-form"><br><br><br><br><br><br><br><br>
+    <form id="cart-form">
       <!-- Lotes -->
       <h4 class="my-4">Lotes de Ingressos</h4>
       <div class="row">
@@ -42,7 +28,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Lote Bronze</h5>
-              <p class="card-text"> R$ 270,00</p>
+              <p class="card-text">R$ 270,00</p>
               <input type="number" id="bronze" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -51,7 +37,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Lote Prata</h5>
-              <p class="card-text"> R$ 300,00</p>
+              <p class="card-text">R$ 300,00</p>
               <input type="number" id="prata" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -60,7 +46,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Lote Ouro</h5>
-              <p class="card-text"> R$ 350,00</p>
+              <p class="card-text">R$ 350,00</p>
               <input type="number" id="ouro" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -97,7 +83,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Curso Prático com Diogo</h5>
-              <p class="card-text">R$ 1.800,00</p>
+              <p class="card-text">R$ 1.500,00</p>
               <input type="number" id="curso_pratico" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -106,7 +92,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Mentoria com Bruno - Individual</h5>
-              <p class="card-text">R$ 1.000,00</p>
+              <p class="card-text">R$ 900,00</p>
               <input type="number" id="mentoria_individual" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -130,27 +116,38 @@
 
   <script>
     function redirecionarParaTermos() {
-      const bronze = document.getElementById('bronze').value;
-      const prata = document.getElementById('prata').value;
-      const ouro = document.getElementById('ouro').value;
-      const vipIndividual = document.getElementById('vip_individual').value;
-      const vipCasal = document.getElementById('vip_casal').value;
-      const cursoPratico = document.getElementById('curso_pratico').value;
-      const mentoriaIndividual = document.getElementById('mentoria_individual').value;
-      const mentoriaCasal = document.getElementById('mentoria_casal').value;
+      const items = [
+        { id: 'bronze', name: 'Lote Bronze', price: 270 },
+        { id: 'prata', name: 'Lote Prata', price: 300 },
+        { id: 'ouro', name: 'Lote Ouro', price: 350 },
+        { id: 'vip_individual', name: 'VIP Individual', price: 450 },
+        { id: 'vip_casal', name: 'VIP Casal', price: 800 },
+        { id: 'curso_pratico', name: 'Curso Prático com Diogo', price: 1500 },
+        { id: 'mentoria_individual', name: 'Mentoria com Bruno - Individual', price: 900 },
+        { id: 'mentoria_casal', name: 'Mentoria com Bruno - Casal', price: 1500 },
+      ];
 
-      // Armazenar os valores no localStorage para a próxima página
-      localStorage.setItem('bronze', bronze);
-      localStorage.setItem('prata', prata);
-      localStorage.setItem('ouro', ouro);
-      localStorage.setItem('vipIndividual', vipIndividual);
-      localStorage.setItem('vipCasal', vipCasal);
-      localStorage.setItem('cursoPratico', cursoPratico);
-      localStorage.setItem('mentoriaIndividual', mentoriaIndividual);
-      localStorage.setItem('mentoriaCasal', mentoriaCasal);
+      let cartData = [];
+      let total = 0;
 
-      // Redirecionar para a página de termos
-      window.location.href = 'termos.html';
+      items.forEach(item => {
+        const quantity = parseInt(document.getElementById(item.id).value) || 0;
+        if (quantity > 0) {
+          cartData.push({
+            name: item.name,
+            quantity,
+            price: item.price,
+            subtotal: quantity * item.price
+          });
+          total += quantity * item.price;
+        }
+      });
+
+      // Salva os dados no localStorage
+      localStorage.setItem("cart", JSON.stringify({ items: cartData, total }));
+
+      // Redireciona para termos.html
+      window.location.href = "termos.html";
     }
   </script>
 

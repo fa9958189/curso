@@ -15,21 +15,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-4B7765BQZB');
   </script>
 
-  <!-- Seção com fundo laranja -->
   <div class="bg-orange container text-center">
-    <form id="cart-form"><br>
-      <!-- Lotes -->
+    <form id="cart-form">
       <h4 class="my-4">Lotes de Ingressos</h4>
       <div class="row">
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Lote Bronze</h5>
-              <p class="card-text"> R$ 270,00</p>
+              <p class="card-text">R$ 270,00</p>
               <input type="number" id="bronze" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -38,7 +35,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Lote Prata</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
+              <p class="card-text">R$ 300,00</p>
               <input type="number" id="prata" value="0" min="0" class="form-control">
             </div>
           </div>
@@ -47,21 +44,21 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Lote Ouro</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
+              <p class="card-text">R$ 350,00</p>
               <input type="number" id="ouro" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
       </div>
-      <!-- VIP -->
+
       <h4 class="my-4">Ingressos VIP</h4>
       <div class="row">
         <div class="col-md-6">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">VIP Individual</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
-              <input type="number" id="vip_individual" value="0" min="0" class="form-control">
+              <p class="card-text">R$ 450,00</p>
+              <input type="number" id="vipIndividual" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
@@ -69,40 +66,39 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">VIP Casal</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
-              <input type="number" id="vip_casal" value="0" min="0" class="form-control">
+              <p class="card-text">R$ 800,00</p>
+              <input type="number" id="vipCasal" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Cursos e Mentorias -->
       <h4 class="my-4">Cursos e Mentorias</h4>
       <div class="row">
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Curso Prático com Diogo</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
-              <input type="number" id="curso_pratico" value="0" min="0" class="form-control">
+              <h5 class="card-title">Curso Prático</h5>
+              <p class="card-text">R$ 1.500,00</p>
+              <input type="number" id="cursoPratico" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Mentoria com Bruno - Individual</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
-              <input type="number" id="mentoria_individual" value="0" min="0" class="form-control">
+              <h5 class="card-title">Mentoria Individual</h5>
+              <p class="card-text">R$ 900,00</p>
+              <input type="number" id="mentoriaIndividual" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Mentoria com Bruno - Casal</h5>
-              <p class="card-text text-danger">Indisponível no momento</p>
-              <input type="number" id="mentoria_casal" value="0" min="0" class="form-control">
+              <h5 class="card-title">Mentoria Casal</h5>
+              <p class="card-text">R$ 1.500,00</p>
+              <input type="number" id="mentoriaCasal" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
@@ -110,33 +106,38 @@
 
       <button type="button" class="btn btn-primary btn-lg" 
         style="background-color: black; color: white;" 
-        onclick="redirecionarParaTermos()">Finalizar Compra</button>
+        onclick="salvarCarrinho()">Finalizar Compra</button>
     </form>
   </div>
 
   <script>
-    function redirecionarParaTermos() {
-      const bronze = document.getElementById('bronze').value;
-      const prata = document.getElementById('prata').value;
-      const ouro = document.getElementById('ouro').value;
-      const vipIndividual = document.getElementById('vip_individual').value;
-      const vipCasal = document.getElementById('vip_casal').value;
-      const cursoPratico = document.getElementById('curso_pratico').value;
-      const mentoriaIndividual = document.getElementById('mentoria_individual').value;
-      const mentoriaCasal = document.getElementById('mentoria_casal').value;
+    function salvarCarrinho() {
+      const items = [
+        { id: 'bronze', name: 'Lote Bronze', price: 270 },
+        { id: 'prata', name: 'Lote Prata', price: 300 },
+        { id: 'ouro', name: 'Lote Ouro', price: 350 },
+        { id: 'vipIndividual', name: 'VIP Individual', price: 450 },
+        { id: 'vipCasal', name: 'VIP Casal', price: 800 },
+        { id: 'cursoPratico', name: 'Curso Prático', price: 1500 },
+        { id: 'mentoriaIndividual', name: 'Mentoria Individual', price: 900 },
+        { id: 'mentoriaCasal', name: 'Mentoria Casal', price: 1500 }
+      ];
 
-      // Armazenar os valores no localStorage para a próxima página
-      localStorage.setItem('bronze', bronze);
-      localStorage.setItem('prata', prata);
-      localStorage.setItem('ouro', ouro);
-      localStorage.setItem('vipIndividual', vipIndividual);
-      localStorage.setItem('vipCasal', vipCasal);
-      localStorage.setItem('cursoPratico', cursoPratico);
-      localStorage.setItem('mentoriaIndividual', mentoriaIndividual);
-      localStorage.setItem('mentoriaCasal', mentoriaCasal);
+      let cart = [];
+      items.forEach(item => {
+        const quantity = parseInt(document.getElementById(item.id).value) || 0;
+        if (quantity > 0) {
+          cart.push({
+            name: item.name,
+            quantity,
+            price: item.price,
+            subtotal: quantity * item.price
+          });
+        }
+      });
 
-      // Redirecionar para a página de termos
-      window.location.href = 'termos.html';
+      localStorage.setItem("cart", JSON.stringify(cart));
+      window.location.href = "index2.html";
     }
   </script>
 

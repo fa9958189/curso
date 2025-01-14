@@ -38,18 +38,6 @@
 </head>
 <body>
 
-  <script async src="https://assets.locaweb.com.br/cliclead/javascript/widget.min.js" widget-customer-id="ad55fce4-b2c8-4e72-a03c-47fefe4a048f"></script>
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4B7765BQZB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4B7765BQZB');
-</script>
-
   <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="container">
       <h2 class="text-center">Preencha seus dados</h2>
@@ -79,29 +67,29 @@
       const telefone = document.getElementById('telefone').value;
       const cpf = document.getElementById('cpf').value;
 
-      // Recuperar os valores do localStorage
-      const bronze = localStorage.getItem('bronze');
-      const prata = localStorage.getItem('prata');
-      const ouro = localStorage.getItem('ouro');
-      const vipIndividual = localStorage.getItem('vipIndividual');
-      const vipCasal = localStorage.getItem('vipCasal');
-      const cursoPratico = localStorage.getItem('cursoPratico');
-      const mentoriaIndividual = localStorage.getItem('mentoriaIndividual');
-      const mentoriaCasal = localStorage.getItem('mentoriaCasal');
+      // Recuperar os itens do carrinho do localStorage
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+      // Construir a mensagem para o WhatsApp
       let message = `Olá, gostaria de finalizar a compra:\n\n`;
       message += `Nome: ${nome}\nTelefone: ${telefone}\nCPF: ${cpf}\n\n`;
-      if (bronze > 0) message += `Lote Bronze: ${bronze} x R$ 270,00\n`;
-      if (prata > 0) message += `Lote Prata: ${prata} x R$ 300,00\n`;
-      if (ouro > 0) message += `Lote Ouro: ${ouro} x R$ 350,00\n`;
-      if (vipIndividual > 0) message += `VIP Individual: ${vipIndividual} x R$ 450,00\n`;
-      if (vipCasal > 0) message += `VIP Casal: ${vipCasal} x R$ 800,00\n`;
-      if (cursoPratico > 0) message += `Curso Prático: ${cursoPratico} x R$ 1.800,00\n`;
-      if (mentoriaIndividual > 0) message += `Mentoria Individual: ${mentoriaIndividual} x R$ 1.000,00\n`;
-      if (mentoriaCasal > 0) message += `Mentoria Casal: ${mentoriaCasal} x R$ 1.500,00\n`;
 
+      if (cart.length > 0) {
+        cart.forEach(item => {
+          message += `${item.name}: ${item.quantity} x R$ ${item.price.toFixed(2)} = R$ ${item.subtotal.toFixed(2)}\n`;
+        });
+      } else {
+        message += `Carrinho vazio.`;
+      }
+
+      // URL do WhatsApp com mensagem codificada
       const whatsappUrl = `https://api.whatsapp.com/send?phone=5563992101487&text=${encodeURIComponent(message)}`;
+      
+      // Abrir WhatsApp em nova aba
       window.open(whatsappUrl, '_blank');
+      
+      // Limpar o carrinho do localStorage após o envio
+      localStorage.removeItem("cart");
     }
   </script>
 
