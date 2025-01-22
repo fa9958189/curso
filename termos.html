@@ -9,6 +9,7 @@
     body {
       padding: 20px;
       font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
     }
     .container {
       max-width: 800px;
@@ -18,33 +19,88 @@
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-top: 20px;
+      color: #555;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 10px;
+      padding-left: 15px;
+      position: relative;
+    }
+    ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: orange;
+      font-size: 1.2rem;
+    }
     .btn-primary {
       background-color: black;
       color: white;
     }
     .btn-primary:hover {
       background-color: orange;
+      color: black;
+    }
+    .form-check {
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4B7765BQZB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4B7765BQZB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-4B7765BQZB');
-</script>
+    gtag('config', 'G-4B7765BQZB');
+  </script>
 
   <div class="container text-center">
     <h2>Termos e Condições</h2>
-    <p>Antes de finalizar sua compra, por favor leia e concorde com os termos abaixo:</p>
+    <p>Antes de finalizar sua compra, por favor leia e concorde com os termos e condições abaixo:</p>
 
     <div class="text-start">
-      <p><strong>Política de Cancelamento:</strong></p>
+      <p class="section-title">Incluso no Evento:</p>
+      <ul>
+        <li>Coffee Break</li>
+        <li>Material de Apoio</li>
+        <li>Certificado</li>
+      </ul>
+      <p><strong>Observação:</strong> Não é necessário levar nenhum tipo de material, pois não se trata de um curso prático.</p>
+
+      <p class="section-title">Importante:</p>
+      <ul>
+        <li>Evento na modalidade de imersão.</li>
+        <li>Hospedagem, translado e transporte <strong>não inclusos</strong>.</li>
+        <li>Almoço <strong>não incluso</strong>.</li>
+        <li>A administração do evento <strong>não se responsabiliza</strong> por objetos perdidos. Cuide de seus pertences com atenção.</li>
+        <li>Acompanhantes sem ingressos <strong>não poderão entrar</strong> no auditório.</li>
+        <li>Este documento constitui o acordo completo e substitui qualquer comunicação prévia, verbal ou escrita.</li>
+        <li>A participação na imersão representa a plena e total aceitação dos termos e condições aqui descritos.</li>
+      </ul>
+
+      <p class="section-title">Política de Reembolso e Condições Gerais de Cancelamento:</p>
+      <ul>
+        <li><strong>Curso confirmado.</strong> Não há risco de cancelamento por parte do organizador.</li>
+        <li>Os ingressos serão vendidos apenas através deste site, via cartão, boleto e Pix do evento, com total segurança aos participantes.</li>
+        <li>A ausência ou atraso do participante no dia do evento, sob qualquer hipótese, <strong>não dará direito a reembolso, bonificação, desconto ou transferência de inscrição.</strong></li>
+      </ul>
+
+      <p class="section-title">Política de Cancelamento:</p>
       <p>Em caso de desistência ou cancelamento do curso, será retido 30% do valor total já pago, referente a taxas administrativas e custos operacionais. O valor restante será reembolsado de acordo com os prazos estabelecidos pela nossa equipe financeira.</p>
     </div>
 

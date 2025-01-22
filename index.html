@@ -111,34 +111,38 @@
   </div>
 
   <script>
-    function salvarCarrinho() {
-      const items = [
-        { id: 'bronze', name: 'Lote Bronze', price: 270 },
-        { id: 'prata', name: 'Lote Prata', price: 300 },
-        { id: 'ouro', name: 'Lote Ouro', price: 350 },
-        { id: 'vipIndividual', name: 'VIP Individual', price: 450 },
-        { id: 'vipCasal', name: 'VIP Casal', price: 800 },
-        { id: 'cursoPratico', name: 'Curso Prático', price: 1500 },
-        { id: 'mentoriaIndividual', name: 'Mentoria Individual', price: 900 },
-        { id: 'mentoriaCasal', name: 'Mentoria Casal', price: 1500 }
-      ];
+   function salvarCarrinho() {
+  const items = [
+    { id: 'bronze', name: 'Lote Bronze', price: 270 },
+    { id: 'prata', name: 'Lote Prata', price: 300 },
+    { id: 'ouro', name: 'Lote Ouro', price: 350 },
+    { id: 'vipIndividual', name: 'VIP Individual', price: 450 },
+    { id: 'vipCasal', name: 'VIP Casal', price: 800 },
+    { id: 'cursoPratico', name: 'Curso Prático', price: 1500 },
+    { id: 'mentoriaIndividual', name: 'Mentoria Individual', price: 900 },
+    { id: 'mentoriaCasal', name: 'Mentoria Casal', price: 1500 }
+  ];
 
-      let cart = [];
-      items.forEach(item => {
-        const quantity = parseInt(document.getElementById(item.id).value) || 0;
-        if (quantity > 0) {
-          cart.push({
-            name: item.name,
-            quantity,
-            price: item.price,
-            subtotal: quantity * item.price
-          });
-        }
+  let cart = [];
+  items.forEach(item => {
+    const quantity = parseInt(document.getElementById(item.id).value) || 0;
+    if (quantity > 0) {
+      cart.push({
+        name: item.name,
+        quantity,
+        price: item.price,
+        subtotal: quantity * item.price
       });
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-      window.location.href = "index2.html";
     }
+  });
+
+  // Salva o carrinho no localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Redireciona para a página de termos
+  window.location.href = "termos.html";
+}
+
   </script>
 
 </body>
