@@ -18,10 +18,8 @@
     gtag('config', 'G-4B7765BQZB');
   </script>
 
-  <!-- Seção com fundo laranja -->
   <div class="bg-orange container text-center">
     <form id="cart-form">
-      <!-- Lotes -->
       <h4 class="my-4">Lotes de Ingressos</h4>
       <div class="row">
         <div class="col-md-4">
@@ -53,7 +51,6 @@
         </div>
       </div>
 
-      <!-- VIP -->
       <h4 class="my-4">Ingressos VIP</h4>
       <div class="row">
         <div class="col-md-6">
@@ -61,7 +58,7 @@
             <div class="card-body">
               <h5 class="card-title">VIP Individual</h5>
               <p class="card-text">R$ 450,00</p>
-              <input type="number" id="vip_individual" value="0" min="0" class="form-control">
+              <input type="number" id="vipIndividual" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
@@ -70,85 +67,82 @@
             <div class="card-body">
               <h5 class="card-title">VIP Casal</h5>
               <p class="card-text">R$ 800,00</p>
-              <input type="number" id="vip_casal" value="0" min="0" class="form-control">
+              <input type="number" id="vipCasal" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Cursos e Mentorias -->
       <h4 class="my-4">Cursos e Mentorias</h4>
       <div class="row">
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Curso Prático com Diogo</h5>
+              <h5 class="card-title">Curso Prático</h5>
               <p class="card-text">R$ 1.500,00</p>
-              <input type="number" id="curso_pratico" value="0" min="0" class="form-control">
+              <input type="number" id="cursoPratico" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Mentoria com Bruno - Individual</h5>
+              <h5 class="card-title">Mentoria Individual</h5>
               <p class="card-text">R$ 900,00</p>
-              <input type="number" id="mentoria_individual" value="0" min="0" class="form-control">
+              <input type="number" id="mentoriaIndividual" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Mentoria com Bruno - Casal</h5>
+              <h5 class="card-title">Mentoria Casal</h5>
               <p class="card-text">R$ 1.500,00</p>
-              <input type="number" id="mentoria_casal" value="0" min="0" class="form-control">
+              <input type="number" id="mentoriaCasal" value="0" min="0" class="form-control">
             </div>
           </div>
         </div>
       </div><br>
-      
+
       <button type="button" class="btn btn-primary btn-lg" 
         style="background-color: black; color: white;" 
-        onclick="redirecionarParaTermos()">Finalizar Compra</button>
+        onclick="salvarCarrinho()">Finalizar Compra</button>
     </form>
   </div>
 
   <script>
-    function redirecionarParaTermos() {
-      const items = [
-        { id: 'bronze', name: 'Lote Bronze', price: 270 },
-        { id: 'prata', name: 'Lote Prata', price: 300 },
-        { id: 'ouro', name: 'Lote Ouro', price: 350 },
-        { id: 'vip_individual', name: 'VIP Individual', price: 450 },
-        { id: 'vip_casal', name: 'VIP Casal', price: 800 },
-        { id: 'curso_pratico', name: 'Curso Prático com Diogo', price: 1500 },
-        { id: 'mentoria_individual', name: 'Mentoria com Bruno - Individual', price: 900 },
-        { id: 'mentoria_casal', name: 'Mentoria com Bruno - Casal', price: 1500 },
-      ];
+   function salvarCarrinho() {
+  const items = [
+    { id: 'bronze', name: 'Lote Bronze', price: 270 },
+    { id: 'prata', name: 'Lote Prata', price: 300 },
+    { id: 'ouro', name: 'Lote Ouro', price: 350 },
+    { id: 'vipIndividual', name: 'VIP Individual', price: 450 },
+    { id: 'vipCasal', name: 'VIP Casal', price: 800 },
+    { id: 'cursoPratico', name: 'Curso Prático', price: 1500 },
+    { id: 'mentoriaIndividual', name: 'Mentoria Individual', price: 900 },
+    { id: 'mentoriaCasal', name: 'Mentoria Casal', price: 1500 }
+  ];
 
-      let cartData = [];
-      let total = 0;
-
-      items.forEach(item => {
-        const quantity = parseInt(document.getElementById(item.id).value) || 0;
-        if (quantity > 0) {
-          cartData.push({
-            name: item.name,
-            quantity,
-            price: item.price,
-            subtotal: quantity * item.price
-          });
-          total += quantity * item.price;
-        }
+  let cart = [];
+  items.forEach(item => {
+    const quantity = parseInt(document.getElementById(item.id).value) || 0;
+    if (quantity > 0) {
+      cart.push({
+        name: item.name,
+        quantity,
+        price: item.price,
+        subtotal: quantity * item.price
       });
-
-      // Salva os dados no localStorage
-      localStorage.setItem("cart", JSON.stringify({ items: cartData, total }));
-
-      // Redireciona para termos.html
-      window.location.href = "termos.html";
     }
+  });
+
+  // Salva o carrinho no localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Redireciona para a página de termos
+  window.location.href = "termos.html";
+}
+
   </script>
 
 </body>
